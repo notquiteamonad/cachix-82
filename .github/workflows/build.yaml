@@ -18,5 +18,9 @@ jobs:
       with:
         name: cachix-action
         extraPullNames: cachix,iohk
+    - name: add haskell.nix pub keys
+      run: sed -i '/^trusted-public-keys =/ s/$/ hydra.iohk.io:f\/Ea+s+dFdN+3Y\/G+FDgSq+a5NEWhJGzdjvKNGv0\/EQ=/' ~/.config/nix/nix.conf
+    - name: add haskell.nix substituters
+      run: sed -i '/^substituters =/ s/$/ https:\/\/hydra.iohk.io/' ~/.config/nix/nix.conf
     - run: nix-build ci.nix -A build
     - run: nix-shell --run "echo OK"
