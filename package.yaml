@@ -1,0 +1,28 @@
+name:                cachix82
+version:             0.1.0.0
+github:              "notquiteamonad/cachix82"
+license:             BSD3
+author:              "notquiteamonad"
+maintainer:          "44178347+notquiteamonad@users.noreply.github.com"
+copyright:           "Copyright notquiteamonad 2021"
+description:         Please see the README on GitHub at <https://github.com/notquiteamonad/cachix82#readme>
+
+extra-source-files:
+- README.md
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  cachix82-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - cachix82
